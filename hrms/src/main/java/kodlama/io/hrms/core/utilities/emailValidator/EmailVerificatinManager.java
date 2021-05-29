@@ -7,7 +7,8 @@ public class EmailVerificatinManager implements EmailVerificationService{
 	@Override
 	public void sendVerificationCode(String email) {
 		UUID uuid = UUID.randomUUID();
-		String verificationLink= "https://hrmsverificationmail/" + uuid.toString();		
+		String verificationLink= "https://hrmsverificationmail/" + uuid.toString();	
+		//
 	}
 
 	@Override
