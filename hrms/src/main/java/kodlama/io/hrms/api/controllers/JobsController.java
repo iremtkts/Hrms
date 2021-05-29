@@ -20,19 +20,20 @@ import kodlama.io.hrms.entities.concretes.JobSeeker;
 @RequestMapping("api/job")
 public class JobsController {
 	
-	private JobSeekerService jobSeekerService;
+	private JobPositionService jobPositionService;
 	@Autowired
-	public JobsController(JobSeekerService jobPositionService) {
+	public JobsController(JobPositionService jobPositionService) {
 		super();
-		this.jobSeekerService = jobPositionService;
+		this.jobPositionService = jobPositionService;
 	}
 	@GetMapping("/getall")
-	public DataResult<List<JobSeeker>> getAll(){
-		return this.jobSeekerService.getAll();		
+	public DataResult<List<JobPosition>> getAll(){
+		return this.jobPositionService.getAll();		
 	}
 	@PostMapping ("/add")
-	public Result add (@RequestBody JobSeeker jobSeeker) {
-		return this.jobSeekerService.add(jobSeeker);
+	public Result add (@RequestBody JobPosition jobPosition) {
+		return this.jobPositionService.add(jobPosition);
 	}
 
 }
+
