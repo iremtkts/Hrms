@@ -3,10 +3,9 @@ package kodlama.io.hrms.dataAccess.abstracts;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
-import kodlama.io.hrms.entities.concretes.Employer;
+import kodlama.io.hrms.entities.concretes.User;
 
 @Repository
-public interface EmployerDao extends JpaRepository <Employer , Integer> {
-	
-
+public interface UserDao extends JpaRepository<User,Integer>{
+	boolean existsByEmailAdress(String email);
 }

@@ -1,4 +1,4 @@
-package kodlama.io.hrms.api.controllers;
+package kodlama.io.hrms.api.controller;
 
 import java.util.List;
 
@@ -9,30 +9,31 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import kodlama.io.hrms.business.abstracts.JobSeekerService;
+import kodlama.io.hrms.business.abstracts.EmployerService;
+
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.Result;
-
-import kodlama.io.hrms.entities.concretes.JobSeeker;
+import kodlama.io.hrms.entities.concretes.Employer;
 
 @RestController
-@RequestMapping("api/jobseekers")
+@RequestMapping("api/employers")
 
-public class JobSeekerController {
+public class EmployerController {
 	
-	private JobSeekerService jobSeekerService;
+	private EmployerService employerService ;
+	
 	@Autowired
-	public JobSeekerController(JobSeekerService jobSeekerService) {
+	public EmployerController(EmployerService employerService) {
 		super();
-		this.jobSeekerService = jobSeekerService;
+		this.employerService = employerService;
 	}
 	@GetMapping("/getall")
-	public DataResult<List <JobSeeker>> getAll(){
-		return this.jobSeekerService.getAll();		
+	public DataResult<List <Employer>> getAll(){
+		return this.employerService.getAll();		
 	}
 	@PostMapping ("/add")
-	public Result add (@RequestBody JobSeeker jobSeeker) {
-		return this.jobSeekerService.add(jobSeeker);
+	public Result add (@RequestBody Employer employer) {
+		return this.employerService.add(employer);
 	}
 
 }
