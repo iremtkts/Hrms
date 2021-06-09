@@ -59,7 +59,7 @@ public class EmployerManager implements EmployerService{
 				
 			}
 		} catch (Exception e) {
-			return new ErrorResult("Sisteme kayıtlı olmayan verilerinizi giriniz");
+			return new ErrorResult("Kullanıcı sistemde kayıtlı");
 		}
 	}
 

@@ -29,8 +29,6 @@ import lombok.NoArgsConstructor;
 
 public class Employer extends User {
 	@Id
-	
-	
 	@NotBlank
 	@Column(name="id")
 	private int id;

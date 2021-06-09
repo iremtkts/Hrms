@@ -28,23 +28,23 @@ public class ValidationManager implements ValidationService{
 
 	@Override
 	public Result mailExist(Employer employer) {
-		if (this.userDao.existsByEmailAdress(employer.getEmail())) {
+		if (this.userDao.getByEmail(employer.getEmail())) {
+			
             return new ErrorResult("Email Adresi Kayıtlı"); }
 	
 	return new SuccessResult();
-	}
+	} 
 
 
 
+	
 	@Override
 	public Result mailExist(JobSeeker jobSeeker) {
-		if (this.userDao.existsByEmailAdress(jobSeeker.getEmail())) {
+		if (this.userDao.getByEmail(jobSeeker.getEmail())) {
             return new ErrorResult("Email Adresi Kayıtlı"); }
 	
 	return new SuccessResult();
 	}
-	
-
 	
 
 	@Override
@@ -74,7 +74,7 @@ public class ValidationManager implements ValidationService{
     }
 	}
 
-
+	
 
 
 

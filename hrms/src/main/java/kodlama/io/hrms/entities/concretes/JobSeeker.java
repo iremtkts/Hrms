@@ -34,7 +34,7 @@ import lombok.NoArgsConstructor;
 
 
 public class JobSeeker extends User {
-	
+	@Id
 	@Column(name="id")
 	@NotBlank
 	private int id ;
@@ -56,6 +56,7 @@ public class JobSeeker extends User {
     @Size(min = 11, max=11, message = "TCKimlik No 11 hane olmalıdır")
 	@Column(name="identity_number")
 	private String identityNumber;
+
 	
 		
 		

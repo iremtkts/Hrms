@@ -1,6 +1,8 @@
 package kodlama.io.hrms.entities.concretes;
 
-import java.util.Date;
+
+
+import java.sql.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -20,9 +22,9 @@ import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-
-@Entity
 @Data
+@Entity
+@Email
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="users")

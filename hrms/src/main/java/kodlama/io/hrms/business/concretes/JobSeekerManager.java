@@ -7,11 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
-
-
-
-
-
+import kodlama.io.hrms.core.services.MernisCheckService;
 import kodlama.io.hrms.core.utilities.emailValidator.EmailValidator;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.ErrorDataResult;
@@ -29,28 +25,28 @@ public class JobSeekerManager implements JobSeekerService {
 
 
 	private JobSeekerDao jobSeekerDao ;
+	private  MernisCheckService mernisCheckService;
 
 	
 	
 	@Autowired
-	public JobSeekerManager(JobSeekerDao jobSeekerDao) {
+	public JobSeekerManager(JobSeekerDao jobSeekerDao , MernisCheckService mernisCheckService ) {
 		super();
-		this.jobSeekerDao = jobSeekerDao;}
+		this.jobSeekerDao = jobSeekerDao;
+		this.mernisCheckService = mernisCheckService;
+		}
 
-	
 
-	
-	
-	
+
 	@Override
 	public Result addJobSeeker(JobSeeker jobSeeker) {
 		try {
 			if(!EmailValidator.isValidEmailId(jobSeeker.getEmail())) {
 				return new ErrorResult("Mail formata uygun değil!");}
 			
-			/*if(!checkIfRealPerson(jobSeeker)) {
+			if(mernisCheckService.isRealJobSeeker(jobSeeker)) {
 				return new ErrorResult("Kullanıcı gerçek bir kişi değil");
-			}*/
+			}
 			else {
 				this.jobSeekerDao.save(jobSeeker);
 				return new SuccessResult("Kullanıcı başarıyla eklendi");

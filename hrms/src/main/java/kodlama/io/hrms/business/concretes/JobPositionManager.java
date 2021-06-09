@@ -15,36 +15,32 @@ import kodlama.io.hrms.core.utilities.results.SuccessResult;
 import kodlama.io.hrms.dataAccess.abstracts.JobPositionDao;
 import kodlama.io.hrms.entities.concretes.JobPosition;
 
-
-
-
 @Service
-public class JobPositionManager implements JobPositionService{
-	
-	private JobPositionDao jobPositionDao;
-	@Autowired
+public class JobPositionManager implements JobPositionService {
 
+	private JobPositionDao jobPositionDao;
+
+	@Autowired
 	public JobPositionManager(JobPositionDao jobPositionDao) {
 		super();
 		this.jobPositionDao = jobPositionDao;
 	}
 
-	
 	@Override
 	public DataResult<List<JobPosition>> getAll() {
-		// TODO Auto-generated method stub
-		return new SuccessDataResult<List<JobPosition>>
-		(this.jobPositionDao.findAll(), "Data listelendi");
+
+		return new SuccessDataResult<List<JobPosition>>(this.jobPositionDao.findAll(), "Data listelendi");
 	}
 
 	@Override
 	public Result add(JobPosition jobPosition) {
-		try {
-		this.jobPositionDao.save(jobPosition);
-		return new SuccessResult("Pozisyon sisteme eklendi");
-		} catch (Exception e) {
+		if (jobPositionDao.getByPositionName(jobPosition.getPositionName())) {
 			return new ErrorResult("Böyle bir pozisyon sistemde mevcut");
+		} else {
+			this.jobPositionDao.save(jobPosition);
+			return new SuccessResult("Pozisyon sisteme eklendi");
 		}
+
 	}
 
 }
