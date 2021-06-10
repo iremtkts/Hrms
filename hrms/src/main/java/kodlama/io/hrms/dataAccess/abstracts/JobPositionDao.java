@@ -13,5 +13,3 @@ public interface JobPositionDao extends JpaRepository <JobPosition , Integer>{
 
 } 
 
-//tekrar söylermisiniz duyamadım da
-///SİLDİM
