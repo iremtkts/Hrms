@@ -1,8 +1,8 @@
-package kodlama.io.hrms.core.utilities.emailValidator;
+package kodlama.io.hrms.core.utilities.verification;
 
 import java.util.UUID;
 
-public class EmailVerificationManager implements EmailVerificationService{
+public class VerificationManager implements VerificationService{
 
 	@Override
 	public void sendVerificationCode(String email) {

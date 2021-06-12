@@ -1,4 +1,4 @@
-package kodlama.io.hrms.core.utilities.emailValidator;
+package kodlama.io.hrms.core.utilities.verification;
 
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
