@@ -27,9 +27,6 @@ import lombok.NoArgsConstructor;
 
 @PrimaryKeyJoinColumn(name = "id" , referencedColumnName = "id")
 
-
-
-
 public class Employer extends User {
 	@Id
 	@NotBlank
