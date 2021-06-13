@@ -41,10 +41,10 @@ public class JobSeekerController {
 		return this.jobSeekerService.addJobSeeker(jobSeeker); }
 
 	
-	@PostMapping("/post")
+	/*@PostMapping("/post")
 	public Result addJobSeeker(@Valid @RequestBody JobSeeker jobSeeker) {
 		return this.jobSeekerService.addJobSeeker(jobSeeker);
 
-	}
+	}*/
 
 }

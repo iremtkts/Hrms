@@ -34,7 +34,8 @@ public class JobPositionManager implements JobPositionService {
 
 	@Override
 	public Result add(JobPosition jobPosition) {
-		if (jobPositionDao.getByPositionName(jobPosition.getPositionName())) {
+		
+		if (jobPositionDao.existsByPositionName(jobPosition.getPositionName())) {
 			return new ErrorResult("Böyle bir pozisyon sistemde mevcut");
 		} else {
 			this.jobPositionDao.save(jobPosition);

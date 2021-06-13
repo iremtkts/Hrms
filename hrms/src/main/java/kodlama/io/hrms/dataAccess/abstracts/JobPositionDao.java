@@ -9,7 +9,7 @@ import kodlama.io.hrms.entities.concretes.JobPosition;
 
 public interface JobPositionDao extends JpaRepository <JobPosition , Integer>{
 	
-	boolean getByPositionName (String jobName);
+	boolean existsByPositionName (String jobName);
 
 } 
 

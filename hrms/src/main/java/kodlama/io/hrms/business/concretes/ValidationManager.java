@@ -60,7 +60,7 @@ public class ValidationManager implements ValidationService{
 	}
 
 	@Override
-	public Result requiredCandidate(JobSeeker jobSeeker) {
+	public Result requiredJobSeeker(JobSeeker jobSeeker) {
 		if (jobSeeker.getFirstName() == null || jobSeeker.getFirstName().isBlank() || jobSeeker.getLastName() == null ||
 				jobSeeker.getLastName().isBlank() || jobSeeker.getEmail() == null || 
 				jobSeeker.getEmail().isBlank() || 

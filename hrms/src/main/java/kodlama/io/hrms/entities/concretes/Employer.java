@@ -3,17 +3,19 @@ package kodlama.io.hrms.entities.concretes;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
+
 import javax.persistence.Id;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
-import com.sun.istack.NotNull;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 
 @Entity
@@ -21,11 +23,9 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name="employers")
+@EqualsAndHashCode(callSuper = false)
 
 @PrimaryKeyJoinColumn(name = "id" , referencedColumnName = "id")
-
-
-
 
 public class Employer extends User {
 	@Id
@@ -44,5 +44,9 @@ public class Employer extends User {
 	@NotBlank(message = "Telefon Numara Alanı Boş Bırakılamaz")
 	@Column(name="phone_number")
 	private String phoneNumber;
+	
+	@JsonIgnore
+	@Transient
+	private boolean confirm ;
 
 }

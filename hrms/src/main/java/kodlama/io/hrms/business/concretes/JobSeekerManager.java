@@ -8,13 +8,13 @@ import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
 import kodlama.io.hrms.core.services.MernisCheckService;
-import kodlama.io.hrms.core.utilities.emailValidator.EmailValidator;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.ErrorDataResult;
 import kodlama.io.hrms.core.utilities.results.ErrorResult;
 import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.core.utilities.results.SuccessDataResult;
 import kodlama.io.hrms.core.utilities.results.SuccessResult;
+import kodlama.io.hrms.core.utilities.verification.EmailValidator;
 import kodlama.io.hrms.dataAccess.abstracts.JobSeekerDao;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 
@@ -44,15 +44,18 @@ public class JobSeekerManager implements JobSeekerService {
 			if(!EmailValidator.isValidEmailId(jobSeeker.getEmail())) {
 				return new ErrorResult("Mail formata uygun değil!");}
 			
-			if(mernisCheckService.isRealJobSeeker(jobSeeker)) {
+			if(!mernisCheckService.isRealJobSeeker(jobSeeker)) {
 				return new ErrorResult("Kullanıcı gerçek bir kişi değil");
+			} 
+			if(jobSeekerDao.existsByIdentityNumber(jobSeeker.getIdentityNumber())) {
+				return new ErrorResult("Tc kimlik sistemde kayıtlı .");
 			}
 			else {
 				this.jobSeekerDao.save(jobSeeker);
 				return new SuccessResult("Kullanıcı başarıyla eklendi");
 			}
 		} catch (Exception e) {
-			return new ErrorResult("Sistemde kayıtlı olan email adresinizi giriniz");
+			return new ErrorResult("Sistemde kaydınız mevcut!");
 		}
 		
 		}		

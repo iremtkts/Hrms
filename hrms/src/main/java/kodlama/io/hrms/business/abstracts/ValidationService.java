@@ -13,7 +13,7 @@ public interface ValidationService {
 	 
 	 //Result mernisCandidate(JobSeeker jobSeeker) ;
 	 Result requiredEmployer(Employer employer);
-	 Result requiredCandidate(JobSeeker jobSeeker);
+	 Result requiredJobSeeker(JobSeeker jobSeeker);
 	
 
 }
