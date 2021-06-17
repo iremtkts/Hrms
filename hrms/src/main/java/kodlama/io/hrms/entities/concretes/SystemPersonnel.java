@@ -19,7 +19,7 @@ import lombok.NoArgsConstructor;
 @EqualsAndHashCode(callSuper=false)
 
 public class SystemPersonnel extends User {
-	@Id
+
 	@NotBlank(message= "isim alanı boş bırakılamaz")
 	@Column(name="first_name")
 	private String firstName;

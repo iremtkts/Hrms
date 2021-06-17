@@ -29,16 +29,12 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Table(name = "job_seekers")
 @EqualsAndHashCode(callSuper=false)
-@PrimaryKeyJoinColumn(name = "id" , referencedColumnName = "id")
+@PrimaryKeyJoinColumn(name = "job_seeker_id")
 @JsonIgnoreProperties({"hibernateLazyInitiliazer" , "handler"})
 
 
 public class JobSeeker extends User {
-	@Id
-	@Column(name="id")
-	@NotBlank
-	private int id ;
-	
+
 	@NotBlank(message = "İsim alanı boş bırakılmaz")
 	@Size(min = 3, message = "İsim alanında en az 3 karakter kullanmanız gerekiyor")
 	@Column(name="first_name")
