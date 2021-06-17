@@ -41,7 +41,7 @@ public class SystemPersonnelController {
 	
 	@PostMapping("/confirmUser")
 	
-	public ResponseEntity<?> confirmUser(@Valid @RequestParam("id")int employerId,@RequestParam("confirm") boolean confirm){
+	public ResponseEntity<?> confirmUser(@Valid @RequestParam("employerId")int employerId,@RequestParam("confirm") boolean confirm){
 		return ResponseEntity.ok(this.systemPersonnelService.confirmEmployer(employerId, confirm));
 	}
 

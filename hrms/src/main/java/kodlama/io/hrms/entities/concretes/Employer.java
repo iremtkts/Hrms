@@ -1,17 +1,20 @@
 package kodlama.io.hrms.entities.concretes;
 
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 
-import javax.persistence.Id;
+
+import javax.persistence.OneToMany;
 import javax.persistence.PrimaryKeyJoinColumn;
 import javax.persistence.Table;
 import javax.persistence.Transient;
 import javax.validation.constraints.NotBlank;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,15 +27,13 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Table(name="employers")
 @EqualsAndHashCode(callSuper = false)
+@PrimaryKeyJoinColumn(name = "employer_id")
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler", "jobAdvertisement"})
 
-@PrimaryKeyJoinColumn(name = "id" , referencedColumnName = "id")
+
 
 public class Employer extends User {
-	@Id
-	@NotBlank
-	@Column(name="id")
-	private int id;
-	
+
 	@NotBlank(message = "Web Site Alanı Boş Bırakılamaz")
 	@Column(name="website_adress")
 	private String websiteAdress;
@@ -48,5 +49,9 @@ public class Employer extends User {
 	@JsonIgnore
 	@Transient
 	private boolean confirm ;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy= "employer")
+	private List<JobAdvertisement> jobAdvertisements;
 
 }

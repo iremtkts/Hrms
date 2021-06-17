@@ -10,8 +10,6 @@ public interface ValidationService {
 	
 	 Result mailExist(Employer employer) ;
 	 Result mailExist(JobSeeker jobSeeker) ;
-	 
-	 //Result mernisCandidate(JobSeeker jobSeeker) ;
 	 Result requiredEmployer(Employer employer);
 	 Result requiredJobSeeker(JobSeeker jobSeeker);
 	
