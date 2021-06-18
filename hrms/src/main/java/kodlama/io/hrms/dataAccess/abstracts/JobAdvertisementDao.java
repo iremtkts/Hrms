@@ -8,7 +8,7 @@ import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 
 import kodlama.io.hrms.entities.concretes.JobAdvertisement;
-import kodlama.io.hrms.entities.dtos.JobAdvertisementWithEmployerWithJobPositionDto;
+import kodlama.io.hrms.entities.dtos.JobAdvertisementDto;
 
 public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement , Integer>{
 	
@@ -28,7 +28,8 @@ public interface JobAdvertisementDao extends JpaRepository<JobAdvertisement , In
 	int updateJobAdvertisementSetIsActiveForEmployer_id(
 			@Param("jobAdvertisementId") int jobAdvertisementId , @Param ("employerId") int employerId);
 	
-	
+
+
    
 	
 
