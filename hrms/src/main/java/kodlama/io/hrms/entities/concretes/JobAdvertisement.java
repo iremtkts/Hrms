@@ -44,7 +44,8 @@ public class JobAdvertisement {
 	@Column(name="release_date")
 	private Date releaseDate;
 	
-	@Column(name="is_active")
+	
+	@Column(name="is_active" , columnDefinition = "boolean default true")
 	private boolean isActive;
 	
 	

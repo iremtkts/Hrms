@@ -52,7 +52,7 @@ public class JobAdvertisementManager implements JobAdvertisementService{
 	
 	@Override
 	public DataResult<List<JobAdvertisementDto>> getAllSorted() {
-		Sort sort = Sort.by(Direction.ASC , "applicationDeadline");
+		Sort sort = Sort.by(Direction.ASC , "applicationDeadlineDate");
 		List<JobAdvertisement> jobAdvertisements = jobAdvertisementDao.findAll(sort);
 		return new SuccessDataResult<List<JobAdvertisementDto>> (jobAdvertisementToDto(jobAdvertisements) , "iş ilanı taihe göre listelendi");
 		}
