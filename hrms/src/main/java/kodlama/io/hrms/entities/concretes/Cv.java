@@ -1,5 +1,7 @@
 package kodlama.io.hrms.entities.concretes;
 
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -7,7 +9,10 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,7 +23,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Table(name="cvs")
-//jsonignore
+
 
 public class Cv {
 	@Id
@@ -26,7 +31,7 @@ public class Cv {
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private int cvId;
 	
-	@ManyToOne
+	@ManyToOne(targetEntity= JobSeeker.class)
 	@JoinColumn(name="job_seeker_id")
 	private JobSeeker jobSeeker;
 	
@@ -38,5 +43,28 @@ public class Cv {
 	
 	@Column(name="linkedin_adress")
 	private String linkedinAddress;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="cv")
+	private List<Education> education;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="cv")
+	private List<Language> language;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="cv")
+	private List<Technology> technology;
+	
+	@JsonIgnore
+	@OneToMany(mappedBy="cv")
+	private List<WorkExperience> workExperience;
+	
+	//@JsonIgnore
+	///@OneToMany(mappedBy="cv")
+	//private List<Photo> photo;
+	
+	
+	
 
 }

@@ -28,7 +28,7 @@ public class WorkExperience {
 	
 	@Id
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="work_experience_id")
+	@Column(name="work_experiences_id")
 	private int workExperienceId;
 	
 	@ManyToOne(targetEntity=Cv.class)
