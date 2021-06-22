@@ -10,7 +10,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
-import javax.validation.constraints.NotBlank;
+
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -44,12 +44,17 @@ public class Education {
 	@JoinColumn(name="cv_id" )
 	private Cv cv;
 	
-	@NotBlank(message="okul adı alanı boş bırakılamaz")
-	@Column(name="university_name")
-	private String universityName;
+	@ManyToOne()
+	@JoinColumn(name="school_id")
+	private School school;
 	
-	@NotBlank(message="bölüm adı alanı boş bırakılamaz")
-	@Column(name="university_department_name")
-	private String universityDepartmentName;
-
+	
+	@ManyToOne()
+	@JoinColumn(name="school_department_id")
+	private SchoolDepartment schoolDepartment;
+	
+	
+	
+	
+	
 }
