@@ -1,5 +1,12 @@
 package kodlama.io.hrms.dataAccess.abstracts;
 
-public interface PhotoDao {
+
+import org.springframework.data.jpa.repository.JpaRepository;
+
+
+import kodlama.io.hrms.entities.concretes.Photo;
+
+public interface PhotoDao extends JpaRepository <Photo, Integer> {
+	
 
 }

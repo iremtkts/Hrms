@@ -60,9 +60,9 @@ public class Cv {
 	@OneToMany(mappedBy="cv")
 	private List<WorkExperience> workExperience;
 	
-	//@JsonIgnore
-//	@OneToMany(mappedBy="cv")
-	//private List<Photo> photo;
+	@JsonIgnore
+    @OneToMany(mappedBy="cv")
+	private List<Photo> photo;
 	
 	
 	

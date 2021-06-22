@@ -24,12 +24,14 @@ public class Photo {
 	@Column(name="photo_id")
 	private int photoId;
 	
-	@JoinColumn(name="cv_id")
-	@ManyToOne
-	private Cv cvId;
-	
 	@Column(name="photo_url")
-	private String photo;
+	private String photoUrl;
+	
+	@ManyToOne
+	@JoinColumn(name="cv_id")
+	
+	private Cv cv;
+	
 	
 
 }
