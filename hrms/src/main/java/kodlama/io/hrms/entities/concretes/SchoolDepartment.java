@@ -7,12 +7,10 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -22,23 +20,18 @@ import lombok.NoArgsConstructor;
 @Entity
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name="languages")
-
-public class Language {
+@Table(name = "school_department")
+public class SchoolDepartment {
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
-	@Column(name="language_id")
-	private int languageId;
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	@Column(name="school_department_id")
+	private int schoolDepartmentId;
 	
-	
-	@Column(name="language_name")
-	private int languageName;
+	@Column(name="school_department_name")
+	private String schoolDepartmentName;
 	
 	@JsonIgnore
-	@OneToMany(mappedBy="language")
-	private List <JobSeekerLanguage> jobSeekerLanguage;
-	
-	
-	
+	@OneToMany(mappedBy="schoolDepartment")
+	private List<Education> education;
 
 }

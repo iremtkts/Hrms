@@ -50,7 +50,7 @@ public class Cv {
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="cv")
-	private List<Language> language;
+	private List<JobSeekerLanguage> jobSeekerLanguage;
 	
 	@JsonIgnore
 	@OneToMany(mappedBy="cv")
@@ -61,7 +61,7 @@ public class Cv {
 	private List<WorkExperience> workExperience;
 	
 	//@JsonIgnore
-	///@OneToMany(mappedBy="cv")
+//	@OneToMany(mappedBy="cv")
 	//private List<Photo> photo;
 	
 	

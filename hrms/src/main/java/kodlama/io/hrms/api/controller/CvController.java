@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import kodlama.io.hrms.entities.concretes.Cv;
-import kodlama.io.hrms.entities.dtos.CvDto;
+
 import java.util.List;
 
 import kodlama.io.hrms.business.abstracts.CvService;
@@ -28,10 +28,7 @@ public class CvController {
 		this.cvService = cvService;
 	}
 	
-	@GetMapping("/getall")
-	DataResult<List<CvDto>> getAll(){
-		return this.cvService.getAll();
-	}
+	
 	
 	@PostMapping("/add")
 	public Result add(@RequestBody Cv cv) {
@@ -39,8 +36,8 @@ public class CvController {
 		}
 	
 	@GetMapping("/getAllJobSeekerId")
-	DataResult<List<Cv>> getAllJobSeekerId(@RequestParam int id){
-		return this.cvService.getAllJobSeekerId(id);
+	DataResult<List<Cv>> getAllJobSeekerId(@RequestParam int jobSeekerId){
+		return this.cvService.findByJobSeekerId(jobSeekerId);
 	}
 
 	
