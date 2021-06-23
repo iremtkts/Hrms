@@ -7,7 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kodlama.io.hrms.business.abstracts.JobSeekerService;
-import kodlama.io.hrms.core.services.MernisCheckService;
+import kodlama.io.hrms.core.abstracts.MernisCheckService;
 import kodlama.io.hrms.core.utilities.results.DataResult;
 import kodlama.io.hrms.core.utilities.results.ErrorDataResult;
 import kodlama.io.hrms.core.utilities.results.ErrorResult;
