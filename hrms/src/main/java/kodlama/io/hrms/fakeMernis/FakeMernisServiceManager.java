@@ -2,7 +2,7 @@ package kodlama.io.hrms.fakeMernis;
 
 import org.springframework.stereotype.Service;
 
-import kodlama.io.hrms.core.services.MernisCheckService;
+import kodlama.io.hrms.core.abstracts.MernisCheckService;
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 
 @Service

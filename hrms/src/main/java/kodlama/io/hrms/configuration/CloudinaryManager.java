@@ -4,11 +4,13 @@ import java.io.FileOutputStream;
 import java.io.IOException;
 import java.util.Map;
 
+import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.cloudinary.Cloudinary;
 import com.cloudinary.utils.ObjectUtils;
 
+@Service
 public class CloudinaryManager {
 	
 	Cloudinary cloudinary;
@@ -34,7 +36,7 @@ public class CloudinaryManager {
 		return result;
 	}
 
-	private File convert(MultipartFile multipartFile) throws IOException {
+	public File convert(MultipartFile multipartFile) throws IOException {
 		File file = new File(multipartFile.getOriginalFilename());
 		FileOutputStream f = new FileOutputStream(file);
 		f.write(multipartFile.getBytes());

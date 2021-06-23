@@ -1,4 +1,4 @@
-package kodlama.io.hrms.core.services;
+package kodlama.io.hrms.core.abstracts;
 
 import kodlama.io.hrms.entities.concretes.JobSeeker;
 
