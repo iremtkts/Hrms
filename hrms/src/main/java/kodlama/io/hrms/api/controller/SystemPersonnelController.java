@@ -5,6 +5,7 @@ import java.util.List;
 import javax.validation.Valid;
 
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -19,6 +20,7 @@ import kodlama.io.hrms.entities.concretes.SystemPersonnel;
 
 @RestController
 @RequestMapping("api/systempersonnel")
+@CrossOrigin
 
 public class SystemPersonnelController {
 	private SystemPersonnelService systemPersonnelService;

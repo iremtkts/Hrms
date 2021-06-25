@@ -1,6 +1,7 @@
 package kodlama.io.hrms.api.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -18,6 +19,7 @@ import kodlama.io.hrms.core.utilities.results.Result;
 
 @RestController
 @RequestMapping("api/cvs")
+@CrossOrigin
 public class CvController {
 	
 	private CvService cvService;
