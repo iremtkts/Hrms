@@ -12,7 +12,7 @@ import kodlama.io.hrms.core.utilities.results.Result;
 import kodlama.io.hrms.entities.concretes.JobSeekerLanguage;
 
 @RestController
-@RequestMapping("/api/jobSeekerLanguage")
+@RequestMapping("/api/jobseekerlanguage")
 @CrossOrigin
 public class JobSeekerLanguageController {
 	
